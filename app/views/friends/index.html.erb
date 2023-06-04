@@ -1,0 +1,93 @@
+<style>
+  .container {
+    margin: 0 auto;
+  }
+
+  .btn-new-friend {
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+  }
+
+  .table th,
+  .table td {
+    border: none;
+    vertical-align: middle;
+    font-weight: normal;
+  }
+
+  .table th {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .table tbody tr:nth-of-type(even) {
+    background-color: #f1f1f1;
+  }
+
+  .table tbody tr:hover {
+    background-color: #f8f9fa;
+  }
+
+  .table .actions {
+    white-space: nowrap;
+  }
+
+  .btn-action {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+  }
+
+  .btn-action.show {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .btn-action.edit {
+    background-color: #6c757d;
+    color: #fff;
+  }
+
+  .btn-action.delete {
+    background-color: #dc3545;
+    color: #fff;
+  }
+</style>
+<div class="container h-100 m-5">
+  <div class="text-end mb-3">
+    <%= link_to "New friend", new_friend_path, class: "btn btn-success btn-new-friend" %>
+  </div>
+  <h1 class="mb-4">Friends List</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @friends.each do |friend| %>
+        <tr>
+          <td><%= friend.first_name %></td>
+          <td><%= friend.last_name %></td>
+          <td><%= friend.email %></td>
+          <td><%= friend.phone %></td>
+          <td><%= friend.twitter %></td>
+          <td class="actions">
+            <%= link_to "Show", friend, class: "btn btn-primary btn-sm btn-action show" %>
+            <%= link_to "Edit", edit_friend_path(friend), class: "btn btn-secondary btn-sm btn-action edit" %>
+            <%= link_to "Delete", friend, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm btn-action delete" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

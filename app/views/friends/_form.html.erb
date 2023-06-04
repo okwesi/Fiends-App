@@ -1,0 +1,39 @@
+<%= form_with(model: friend) do |form| %>
+  <% if friend.errors.any? %>
+    <div class="text-red-500 mb-4">
+      <h2 class="text-xl font-bold"><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+      <ul class="list-disc ml-6">
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mb-4">
+    <%= form.label :first_name, class: "block font-medium text-poppins text-light" %>
+    <%= form.text_field :first_name, class: "w-full px-4 py-2 border rounded-md text-poppins" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :last_name, class: "block font-medium text-poppins text-light
+" %>
+    <%= form.text_field :last_name, class: "w-full px-4 py-2 border rounded-md text-poppins" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :email, class: "block font-medium text-poppins text-light
+" %>
+    <%= form.text_field :email, class: "w-full px-4 py-2 border rounded-md text-poppins" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :phone, class: "block font-medium text-poppins text-light
+" %>
+    <%= form.text_field :phone, class: "w-full px-4 py-2 border rounded-md text-poppins" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :twitter, class: "block font-medium text-poppins text-light
+" %>
+    <%= form.text_field :twitter, class: "w-full px-4 py-2 border rounded-md text-poppins" %>
+  </div>
+  <div>
+    <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>
