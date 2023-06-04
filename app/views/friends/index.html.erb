@@ -61,7 +61,7 @@
   <div class="text-end mb-3">
     <%= link_to "New friend", new_friend_path, class: "btn btn-success btn-new-friend" %>
   </div>
-  <h1 class="mb-4">Friends List</h1>
+  <h1 class="mb-4 font-sans">Friends List</h1>
   <table class="table">
     <thead>
       <tr>
@@ -70,6 +70,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Twitter</th>
+        <th>User</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -81,6 +82,7 @@
           <td><%= friend.email %></td>
           <td><%= friend.phone %></td>
           <td><%= friend.twitter %></td>
+          <td><%= friend.user_id %></td>
           <td class="actions">
             <%= link_to "Show", friend, class: "btn btn-primary btn-sm btn-action show" %>
             <%= link_to "Edit", edit_friend_path(friend), class: "btn btn-secondary btn-sm btn-action edit" %>
